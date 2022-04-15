@@ -40,6 +40,8 @@ header('Access-Control-Allow-Origin: *');
 			case 'register_user' :
 				require_once 'User/register_user.php';
 				break;
+			case 'new_item' :
+				require_once 'Item/all_item.php';
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
