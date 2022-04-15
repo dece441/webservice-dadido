@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2022 at 01:28 PM
+-- Generation Time: Apr 15, 2022 at 01:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_collection` (
   `id` int(11) NOT NULL,
-  `nama_collection` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
+  `id_profile` int(11) NOT NULL DEFAULT 0,
+  `collection_name` varchar(255) NOT NULL,
+  `image_banner_url` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `pathfile_server` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,8 +40,8 @@ CREATE TABLE `tbl_collection` (
 -- Dumping data for table `tbl_collection`
 --
 
-INSERT INTO `tbl_collection` (`id`, `nama_collection`, `url`, `description`, `pathfile_server`) VALUES
-(1, 'Daniel', 'doremi.com', 'Ini adalah collection saya yang dimana banyak isinya', 'http://test.com');
+INSERT INTO `tbl_collection` (`id`, `id_profile`, `collection_name`, `image_banner_url`, `description`, `pathfile_server`) VALUES
+(1, 1, 'Daniel', 'doremi.com', 'Ini adalah collection saya yang dimana banyak isinya', 'http://test.com');
 
 -- --------------------------------------------------------
 
@@ -65,11 +66,11 @@ CREATE TABLE `tbl_favorit` (
 CREATE TABLE `tbl_item` (
   `id` int(11) NOT NULL,
   `id_collection` int(11) NOT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `nama_file` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `deskripsi` varchar(255) NOT NULL,
-  `status_sell` int(11) NOT NULL,
+  `id_profile` int(11) DEFAULT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `image_url` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `sell_status` int(11) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -77,7 +78,7 @@ CREATE TABLE `tbl_item` (
 -- Dumping data for table `tbl_item`
 --
 
-INSERT INTO `tbl_item` (`id`, `id_collection`, `id_user`, `nama_file`, `url`, `deskripsi`, `status_sell`, `price`) VALUES
+INSERT INTO `tbl_item` (`id`, `id_collection`, `id_profile`, `file_name`, `image_url`, `description`, `sell_status`, `price`) VALUES
 (1, 1, 1, 'Gambar Indah', 'http://tempatnya', 'Dibuat Oleh daniel', 1, 12),
 (2, 1, 1, 'Gambar Daniel', 'http://lokasi', 'Dibuat Oleh Daniel', 1, 3);
 
@@ -110,9 +111,9 @@ INSERT INTO `tbl_profile` (`id`, `id_user`, `id_collection`, `id_wallet`) VALUES
 CREATE TABLE `tbl_transaction` (
   `id` int(11) NOT NULL,
   `id_item` int(11) NOT NULL,
-  `id_profile_beli` int(11) NOT NULL,
-  `id_profile_jual` int(11) NOT NULL,
-  `waktu_transaksi` datetime NOT NULL
+  `id_profile_buyer` int(11) NOT NULL,
+  `id_profile_seller` int(11) NOT NULL,
+  `transaction_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
