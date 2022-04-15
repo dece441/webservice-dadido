@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2022 at 01:47 PM
+-- Generation Time: Apr 15, 2022 at 02:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -32,16 +32,16 @@ CREATE TABLE `tbl_collection` (
   `id_profile` int(11) NOT NULL DEFAULT 0,
   `collection_name` varchar(255) NOT NULL,
   `image_banner_url` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `pathfile_server` varchar(255) NOT NULL
+  `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_collection`
 --
 
-INSERT INTO `tbl_collection` (`id`, `id_profile`, `collection_name`, `image_banner_url`, `description`, `pathfile_server`) VALUES
-(1, 1, 'Daniel', 'doremi.com', 'Ini adalah collection saya yang dimana banyak isinya', 'http://test.com');
+INSERT INTO `tbl_collection` (`id`, `id_profile`, `collection_name`, `image_banner_url`, `description`) VALUES
+(1, 1, 'Daniel Collection', 'doremi.com', 'Ini adalah collection saya yang dimana banyak isinya'),
+(2, 2, 'Budi Collection', 'somewhere.com', 'Collection saya berisi sangat banyak data gambar bagus');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,9 @@ CREATE TABLE `tbl_item` (
 
 INSERT INTO `tbl_item` (`id`, `id_collection`, `id_profile`, `file_name`, `image_url`, `description`, `sell_status`, `price`) VALUES
 (1, 1, 1, 'Gambar Indah', 'http://tempatnya', 'Dibuat Oleh daniel', 1, 12),
-(2, 1, 1, 'Gambar Daniel', 'http://lokasi', 'Dibuat Oleh Daniel', 1, 3);
+(2, 1, 1, 'Gambar Daniel', 'http://lokasi', 'Dibuat Oleh Daniel', 1, 3),
+(3, 2, 2, 'Gambar Budi', 'http://lokasi2', 'Dibuat Oleh Budi', 1, 5),
+(4, 2, 2, 'Gambar Mobil', 'http://disini', 'Dibuat Oleh Budi', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -100,7 +102,8 @@ CREATE TABLE `tbl_profile` (
 --
 
 INSERT INTO `tbl_profile` (`id`, `id_user`, `id_collection`, `id_wallet`) VALUES
-(1, 1, 1, 1);
+(1, 1, 1, 1),
+(2, 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -113,8 +116,19 @@ CREATE TABLE `tbl_transaction` (
   `id_item` int(11) NOT NULL,
   `id_profile_buyer` int(11) NOT NULL,
   `id_profile_seller` int(11) NOT NULL,
+  `event` varchar(50) DEFAULT 'mounted',
   `transaction_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_transaction`
+--
+
+INSERT INTO `tbl_transaction` (`id`, `id_item`, `id_profile_buyer`, `id_profile_seller`, `event`, `transaction_time`) VALUES
+(1, 1, 1, 0, 'mounted', '2022-04-15 18:52:17'),
+(2, 2, 1, 0, 'mounted', '2022-04-15 18:52:56'),
+(3, 3, 2, 0, 'mounted', '2022-04-15 19:05:55'),
+(4, 4, 2, 0, 'mounted', '2022-04-15 19:06:06');
 
 -- --------------------------------------------------------
 
@@ -157,7 +171,8 @@ CREATE TABLE `tbl_wallet` (
 --
 
 INSERT INTO `tbl_wallet` (`id`, `total_fund`, `wallet_type`, `contract_address`) VALUES
-(1, 10, 'dadido', 'kDSJhfkjsdhflksajhdkajlsdhflkjahsdfjkhsd');
+(1, 10, 'dadido', 'kDSJhfkjsdhflksajhdkajlsdhflkjahsdfjkhsd'),
+(2, 30, 'dadido', 'kDSJhfkjsdhflksajhdkajlsdhflkjahsdfjkhsd');
 
 --
 -- Indexes for dumped tables
@@ -213,7 +228,7 @@ ALTER TABLE `tbl_wallet`
 -- AUTO_INCREMENT for table `tbl_collection`
 --
 ALTER TABLE `tbl_collection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_favorit`
@@ -225,19 +240,19 @@ ALTER TABLE `tbl_favorit`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_profile`
 --
 ALTER TABLE `tbl_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaction`
 --
 ALTER TABLE `tbl_transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
@@ -249,7 +264,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_wallet`
 --
 ALTER TABLE `tbl_wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
