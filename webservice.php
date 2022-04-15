@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: GET,POST,DELETE.PUT');
 header('Access-Control-Allow-Origin: *');
     
     if (isset($_POST['CMD'])){
-        require_once('MyConn.php');
+        require_once('config/MyConn.php');
 		switch($_POST['CMD']) {
 		
 			case 'Test':
@@ -35,35 +35,10 @@ header('Access-Control-Allow-Origin: *');
 				break;
 
 			case 'login_user':
-				$result = array();
-				$username = $_POST['username'];
-				$password = $_POST['password'];
-
-				$sql = "SELECT * FROM tbl_user WHERE username = '$username' AND password = '$password'";
-				$query = mysqli_query($my_conn,$sql);
-			
-				if(mysqli_num_rows($query) == 0){
-					echo json_encode("Wrong username or password");
-				} else {
-					echo json_encode("Login Successfull");
-				}
+				require_once 'User/login_user.php';
 				break;
-			
 			case 'register_user' :
-				$result = array();
-				$username = $_POST['username'];
-				$fullname = $_POST['fullname'];
-				$email = $_POST['email'];
-				$password = $_POST['password'];
-				
-				$sql = "INSERT INTO tbl_user (fullname, username, email, password) VALUES ('$fullname','$username','$email','$password')";
-
-				if(mysqli_query($my_conn, $sql)) {
-					echo json_encode("Register Successfull!!");
-				} else {
-					echo "Error";
-				}
-
+				require_once 'User/register_user.php';
 				break;
 			default:
 				$response['error'] = true;
