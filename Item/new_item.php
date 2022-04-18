@@ -1,5 +1,4 @@
 <?php 
-
     $result = array();
     $sql = "SELECT * FROM tbl_item";
     $query = mysqli_query($my_conn, $sql);
@@ -7,9 +6,9 @@
         while($row = mysqli_fetch_assoc($query)) {
             $result[] = $row;
         }
-        return json_encode($result);
+        echo json_encode($result);
     } else {
-        return json_encode("Data not found!");
+        echo json_encode("Data not found!");
     }
 
 ?>
