@@ -16,6 +16,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'profile_user' :
 				require_once 'User/profile_user.php';
 				break;
+			case 'update_profile' :
+				require_once 'User/update_profile.php';
+				break;
 			case 'register_user' :
 				require_once 'User/register_user.php';
 				break;

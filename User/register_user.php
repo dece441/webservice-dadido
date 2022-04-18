@@ -10,6 +10,6 @@
     if(mysqli_query($my_conn, $sql)) {
         echo json_encode("Register Successfull!!");
     } else {
-        echo "Error";
+        echo json_encode("Error");
     }
 ?>
