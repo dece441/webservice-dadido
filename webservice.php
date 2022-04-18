@@ -13,6 +13,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'login_user':
 				require_once 'User/login_user.php';
 				break;
+			case 'profile_user' :
+				require_once 'User/profile_user.php';
+				break;
 			case 'register_user' :
 				require_once 'User/register_user.php';
 				break;
