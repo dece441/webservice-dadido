@@ -7,21 +7,17 @@
     $fullname = $_POST['fullname'];
     $homeAddr = $_POST['home_address'];
 
-    $query = mysqli_query($my_conn, "SELECT id FROM tbl_user WHERE username='$username' AND password='$oldPass'");
+    $sql = "UPDATE tbl_user SET username='$username',email='$email',
+            fullname='$fullname',home_address='$homeAddr', password='$newPass' 
+            WHERE username='$username' AND password='$oldPass'";
+    
+    mysqli_query($my_conn, $sql);
 
-    if($query) {
-        $id_user = implode(mysqli_fetch_assoc($query));
-        
-        $sql = "UPDATE tbl_user SET 
-        username='$username',email='$email',
-        fullname='$fullname',home_address='$homeAddr',
-        password='$newPass' WHERE id = '$id_user'";
-
+    if(mysqli_affected_rows($my_conn) > 0) {
         echo json_encode("success");
     } else {
         echo json_encode("failed");
     }
-
     
 
 ?>
