@@ -31,6 +31,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'get_item_base_by_item_id':
 				require_once 'Item/get_item_by_id.php';
 				break;
+			case 'get_detail_item' :
+				require_once 'Item/get_detail_item.php';
+				break;
 			case 'data_creator' :
 				require_once 'Creator/data_creator.php';
 				break;
