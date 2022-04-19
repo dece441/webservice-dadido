@@ -28,7 +28,7 @@
        $fullname = $_POST['fullname'];
 
        $sql = "UPDATE tbl_user SET username='$username',email='$email',
-               fullname='$fullname',home_address='$homeAddr', password='$newPass' 
+               fullname='$fullname', password='$newPass' 
                WHERE username='$username' AND password='$oldPass'";
     
        mysqli_query($my_conn, $sql);
