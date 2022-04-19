@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 09:16 AM
+-- Generation Time: Apr 19, 2022 at 03:19 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -41,7 +41,8 @@ CREATE TABLE `tbl_collection` (
 
 INSERT INTO `tbl_collection` (`id`, `id_profile`, `collection_name`, `image_banner_url`, `description`) VALUES
 (1, 1, 'Daniel Collection', 'https://lh3.googleusercontent.com/-114aDz8vMbSCOkiv7Id2fnMDTe-eq8iHfurg2xh6d3IaoBb8ylfVizLWZq2wmQze-Ii3mpNKrqrP48i4Q1yf9pzYwHYpuxjKHiLCA=h600', 'Ini adalah collection saya yang dimana banyak isinya'),
-(2, 2, 'Budi Collection', 'https://lh3.googleusercontent.com/RPT6v17Bh3mO_kYFwmrJSnOC_hstEgKoIpEnkp84bqp99I5W1nCvE6hOUnKYt7ZMBQCuI0N8WjyyQNYtzTb6Wcp__YYSr7lPGgASfw=h600', 'Collection saya berisi sangat banyak data gambar bagus');
+(2, 2, 'Budi Collection', 'https://lh3.googleusercontent.com/RPT6v17Bh3mO_kYFwmrJSnOC_hstEgKoIpEnkp84bqp99I5W1nCvE6hOUnKYt7ZMBQCuI0N8WjyyQNYtzTb6Wcp__YYSr7lPGgASfw=h600', 'Collection saya berisi sangat banyak data gambar bagus'),
+(3, 3, 'Ardos Collection', 'https://lh3.googleusercontent.com/48oVuDyfe_xhs24BC2TTVcaYCX7rrU5mpuQLyTgRDbKHj2PtzKZsQ5qC3xTH4ar34wwAXxEKH8uUDPAGffbg7boeGYqX6op5vBDcbA=h600', 'This is Ardos Collection, I have so Many Pictures in here');
 
 -- --------------------------------------------------------
 
@@ -80,10 +81,12 @@ CREATE TABLE `tbl_item` (
 --
 
 INSERT INTO `tbl_item` (`id`, `id_collection`, `id_profile`, `file_name`, `image_url`, `description`, `sell_status`, `price`) VALUES
-(1, 1, 1, 'Gambar Indah', 'https://i.pinimg.com/736x/b9/ae/1c/b9ae1c820c0162c268611941084dd614.jpg', 'Dibuat Oleh daniel', 1, 12),
-(2, 1, 1, 'Gambar Daniel', 'https://i.pinimg.com/736x/9d/22/c6/9d22c6839b684d30075ab1ae321ef058.jpg', 'Dibuat Oleh Daniel', 1, 3),
-(3, 2, 2, 'Gambar Budi', 'https://media.raritysniper.com/azuki/3309-600.webp?cacheId=2', 'Dibuat Oleh Budi', 1, 5),
-(4, 2, 2, 'Gambar Mobil', 'https://lh3.googleusercontent.com/QA8lHQmySHMAL8K9aXetIAlZT0WBtVG7tPQR7u8uWeeFnBqsCAe_c5hok0MGRKpAqTRnzYTHiLzVcwDOvP6Q4tEfXzVZJLtvdmVzvz8=w1400-k', 'Dibuat Oleh Budi', 1, 8);
+(1, 1, 1, 'Rambut Api', 'https://i.pinimg.com/736x/b9/ae/1c/b9ae1c820c0162c268611941084dd614.jpg', 'Dibuat Oleh daniel', 1, 12),
+(2, 1, 1, 'Headset Brow', 'https://i.pinimg.com/736x/9d/22/c6/9d22c6839b684d30075ab1ae321ef058.jpg', 'Dibuat Oleh Daniel', 1, 3),
+(3, 2, 2, 'Golden Swords', 'https://media.raritysniper.com/azuki/3309-600.webp?cacheId=2', 'Dibuat Oleh Budi', 1, 5),
+(4, 2, 2, 'GoldenCat', 'https://lh3.googleusercontent.com/QA8lHQmySHMAL8K9aXetIAlZT0WBtVG7tPQR7u8uWeeFnBqsCAe_c5hok0MGRKpAqTRnzYTHiLzVcwDOvP6Q4tEfXzVZJLtvdmVzvz8=w1400-k', 'Dibuat Oleh Budi', 1, 8),
+(5, 3, 3, 'Black Man', 'https://lh3.googleusercontent.com/vxPRqRqF5XXXiKcY2WmySxPph8n8DIT4-9lUcGPOOf5FDxzODslqcSy5kr5gt8gEI6c20fDmWTMi9CH86GlPo5wuTMbiuFmCPV2q=w600', 'Ardo', 1, 5),
+(6, 3, 3, 'Jacket Man', 'https://lh3.googleusercontent.com/Uagikn-Lhn2W44V54_5UcsnMqrBESw6TkHV3PF_HiDXZZdryannrULVLEsrSeqLZxlSJZ3aA2E7hq3O62Ta4237jEQ=w600', 'Ardo', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -105,7 +108,8 @@ CREATE TABLE `tbl_profile` (
 
 INSERT INTO `tbl_profile` (`id`, `id_user`, `id_collection`, `id_wallet`, `profile_url`) VALUES
 (1, 1, 1, 1, 'https://lh3.googleusercontent.com/bTxADvEugM_Ot0hMbLxIAfYbDWX6QAaXLWKeKUIDGcz62VRvUd9gRLJqg3r4RIODCHEFuJMVj4qPgB-9sN3aCnfTng2euVM621Syiw=s130'),
-(2, 2, 2, 2, 'https://lh3.googleusercontent.com/VyxHil3DawP25ZoSk7HkSJslwUDLFO3_LC9rj-w0jYUKxkcGy-VLVGk4n-I02t8CwJRt4Bk7mEwhGAgVCsjQyZfzi30RCQoPkXqY=s130');
+(2, 2, 2, 2, 'https://lh3.googleusercontent.com/VyxHil3DawP25ZoSk7HkSJslwUDLFO3_LC9rj-w0jYUKxkcGy-VLVGk4n-I02t8CwJRt4Bk7mEwhGAgVCsjQyZfzi30RCQoPkXqY=s130'),
+(3, 3, 3, 3, 'https://lh3.googleusercontent.com/BdxvLseXcfl57BiuQcQYdJ64v-aI8din7WPk0Pgo3qQFhAUH-B6i-dCqqc_mCkRIzULmwzwecnohLhrcH8A9mpWIZqA7ygc52Sr81hE=s130');
 
 -- --------------------------------------------------------
 
@@ -118,7 +122,7 @@ CREATE TABLE `tbl_transaction` (
   `id_item` int(11) NOT NULL,
   `id_profile_buyer` int(11) NOT NULL,
   `id_profile_seller` int(11) NOT NULL,
-  `event` varchar(50) DEFAULT 'mounted',
+  `event` varchar(50) DEFAULT 'minted',
   `transaction_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -127,10 +131,12 @@ CREATE TABLE `tbl_transaction` (
 --
 
 INSERT INTO `tbl_transaction` (`id`, `id_item`, `id_profile_buyer`, `id_profile_seller`, `event`, `transaction_time`) VALUES
-(1, 1, 1, 0, 'mounted', '2022-04-15 18:52:17'),
-(2, 2, 1, 0, 'mounted', '2022-04-15 18:52:56'),
-(3, 3, 2, 0, 'mounted', '2022-04-15 19:05:55'),
-(4, 4, 2, 0, 'mounted', '2022-04-15 19:06:06');
+(1, 1, 1, 0, 'minted', '2022-04-15 18:52:17'),
+(2, 2, 1, 0, 'minted', '2022-04-15 18:52:56'),
+(3, 3, 2, 0, 'minted', '2022-04-15 19:05:55'),
+(4, 4, 2, 0, 'minted', '2022-04-15 19:06:06'),
+(5, 5, 3, 0, 'minted', '2022-04-19 15:01:44'),
+(6, 6, 3, 0, 'minted', '2022-04-19 15:01:44');
 
 -- --------------------------------------------------------
 
@@ -175,7 +181,8 @@ CREATE TABLE `tbl_wallet` (
 
 INSERT INTO `tbl_wallet` (`id`, `total_fund`, `wallet_type`, `contract_address`) VALUES
 (1, 10, 'dadido', 'kDSJhfkjsdhflksajhdkajlsdhflkjahsdfjkhsd'),
-(2, 30, 'dadido', 'kDSJhfkjsdhflksajhdkajlsdhflkjahsdfjkhsd');
+(2, 30, 'dadido', 'kDSJhfkjsdhflksajhdkajlsdhflkjahsdfjkhsd'),
+(3, 60, 'dadido', 'jdkhfklkdjshlkjdshflkjhsdlfkhsdf');
 
 --
 -- Indexes for dumped tables
@@ -231,7 +238,7 @@ ALTER TABLE `tbl_wallet`
 -- AUTO_INCREMENT for table `tbl_collection`
 --
 ALTER TABLE `tbl_collection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_favorit`
@@ -243,19 +250,19 @@ ALTER TABLE `tbl_favorit`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_profile`
 --
 ALTER TABLE `tbl_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaction`
 --
 ALTER TABLE `tbl_transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
@@ -267,7 +274,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_wallet`
 --
 ALTER TABLE `tbl_wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
