@@ -34,6 +34,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'data_creator' :
 				require_once 'Creator/data_creator.php';
 				break;
+			case 'on_search' :
+				require_once 'Item/on_search.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
