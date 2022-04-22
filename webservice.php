@@ -40,8 +40,14 @@ header('Access-Control-Allow-Origin: *');
 			case 'on_search' :
 				require_once 'Item/on_search.php';
 				break;
-                  case 'has_collection':
+			case 'has_collection':
 				require_once 'Creator/has_collection.php';
+				break;
+			case 'get_funds':
+				require_once 'Wallet/get_funds.php';
+				break;
+			case 'add_funds':
+				require_once 'Wallet/add_funds.php';
 				break;
 			default:
 				$response['error'] = true;
