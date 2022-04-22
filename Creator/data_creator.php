@@ -1,6 +1,6 @@
 <?php 
     $result = array();
-    $sql = "SELECT tbl_collection.*, tbl_user.fullname, tbl_profile.profile_url FROM tbl_collection
+    $sql = "SELECT tbl_collection.*, tbl_user.username, tbl_profile.profile_url FROM tbl_collection
         INNER JOIN tbl_profile ON tbl_collection.id_profile = tbl_profile.id
         INNER JOIN tbl_user ON tbl_profile.id_user = tbl_user.id
     ";

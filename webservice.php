@@ -49,6 +49,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'add_funds':
 				require_once 'Wallet/add_funds.php';
 				break;
+			case 'collection_by_username':
+				require_once 'Creator/collection_by_username.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
