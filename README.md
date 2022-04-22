@@ -1,5 +1,4 @@
 # webservice-dadido
-This is the webservice, so you can update this anytime anywhere
 
 Webservice containing webservice.php and sql database,
 Webservice job is to create connection from application to a database. 
