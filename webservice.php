@@ -49,6 +49,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'add_funds':
 				require_once 'Wallet/add_funds.php';
 				break;
+			case 'user_fav' :
+				require_once 'Favorite/user_fav.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
