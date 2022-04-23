@@ -1,14 +1,12 @@
 <?php
     $username = $_POST["username"];
-    $pass = $_POST["password"];
     $result = array();
 
     $sql = "SELECT u.username, c.collection_name, c.image_banner_url, c.description, p.profile_url
             FROM tbl_user u, tbl_profile p, tbl_collection c
             WHERE u.id = p.id
             AND p.id_collection = c.id
-            AND u.username = '$username'
-            AND u.password = '$pass'";
+            AND u.username = '$username'";
     
     $query = mysqli_query($my_conn, $sql);
     if($query) {

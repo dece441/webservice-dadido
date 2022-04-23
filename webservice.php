@@ -55,6 +55,12 @@ header('Access-Control-Allow-Origin: *');
 			case 'collection_by_username':
 				require_once 'Creator/collection_by_username.php';
 				break;
+			case 'min_price':
+				require_once 'Creator/min_price.php';
+				break;
+			case 'item_by_username':
+				require_once 'Creator/item_by_username.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
