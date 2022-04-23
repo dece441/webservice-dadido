@@ -52,6 +52,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'user_fav' :
 				require_once 'Favorite/user_fav.php';
 				break;
+			case 'collection_by_username':
+				require_once 'Creator/collection_by_username.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';

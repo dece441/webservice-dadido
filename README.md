@@ -1,5 +1,23 @@
 # webservice-dadido
-This is the webservice, so you can update this anytime anywhere
 
 Webservice containing webservice.php and sql database,
-Update here if there is a new update on webservice
+Webservice job is to create connection from application to a database. 
+Our webservice is using Json body to send messages from different devices.
+This Webservice being use by android application, 
+>DadidoApp on BUDIARIYANSA Repositories:
+https://github.com/BUDIARIYANSA/DadidoApp.git
+
+# Installation
+### On XAMPP :
+1. Go to `C:\XAMPP\HTDOCS\`
+2. do `git clone` 
+3. Import the SQL Database, which already in the folder
+4. Run XAMPP apache and MySQL server
+5. Open Dadido app on your android and enjoy
+
+### On WAMP Server :
+1. Go to `C:\WAMP\WWW\`
+2. do `git clone`
+3. Import the SQL Database, Which already in the folder
+4. Run WAMP Server
+5. Open Dadido App on your android and enjoy
