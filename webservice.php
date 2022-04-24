@@ -32,7 +32,7 @@ header('Access-Control-Allow-Origin: *');
 				require_once 'Item/get_item_by_id.php';
 				break;
 			case 'get_detail_item' :
-				require_once 'Item/get_detail_item.php';
+				require_once 'Item/get_more_item.php';
 				break;
 			case 'data_creator' :
 				require_once 'Creator/data_creator.php';
