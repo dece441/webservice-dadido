@@ -76,6 +76,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'unfav_item' :
 				require_once 'Favorite/unfav_item.php';
 				break;
+			case 'insert_new_fav' :
+				require_once 'Favorite/insert_new_fav.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
