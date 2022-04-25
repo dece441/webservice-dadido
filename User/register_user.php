@@ -17,7 +17,7 @@
         if($res2){
             $last_wallet_id = mysqli_insert_id($my_conn);
 
-            $sql3 = "INSERT INTO tbl_profile (id_user, id_collection, id_wallet, profile_url) VALUES ($last_user_id,0,$last_wallet_id,'https://www.kindpng.com/picc/m/21-214439_free-high-quality-person-icon-default-profile-picture.png')";
+            $sql3 = "INSERT INTO tbl_profile (id_user, id_collection, id_wallet, profile_url) VALUES ($last_user_id,0,$last_wallet_id,'/empty_user2.png')";
             $res3 = mysqli_query($my_conn, $sql3);
 
             if($res3){
