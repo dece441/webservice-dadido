@@ -1,6 +1,6 @@
 <?php 
     $result = array();
-    $sql = "SELECT * FROM tbl_item";
+    $sql = "SELECT * FROM tbl_item ORDER BY id DESC";
     $query = mysqli_query($my_conn, $sql);
     if($query) {
         while($row = mysqli_fetch_assoc($query)) {
