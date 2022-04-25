@@ -67,6 +67,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'create_item':
 				require_once 'Item/create_item.php';
 				break;
+			case 'create_collection':
+				require_once 'Creator/create_collection.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
