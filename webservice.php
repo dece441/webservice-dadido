@@ -70,6 +70,12 @@ header('Access-Control-Allow-Origin: *');
 			case 'create_collection':
 				require_once 'Creator/create_collection.php';
 				break;
+			case 'fav_item' :
+				require_once 'Favorite/fav_item.php';
+				break;
+			case 'unfav_item' :
+				require_once 'Favorite/unfav_item.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
