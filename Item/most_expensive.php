@@ -1,7 +1,7 @@
 <?php 
     $result = array();
     $sql = "SELECT tbl_item.*, tbl_user.username FROM tbl_item
-    INNER JOIN tbl_user ON tbl_user.id = tbl_item.id_profile
+    INNER JOIN tbl_user ON tbl_user.id = tbl_item.id_profile_creator
     ORDER BY price DESC LIMIT 10";
     $query = mysqli_query($my_conn, $sql);
     if($query) {
