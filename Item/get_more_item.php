@@ -2,7 +2,7 @@
     $id = $_POST['id'];
 
     $sql = "SELECT * FROM tbl_item WHERE 
-            id_profile = (SELECT id_profile FROM tbl_item WHERE id = '$id');";
+            id_profile = (SELECT id_profile FROM tbl_item WHERE id = '$id')";
 
     $query = mysqli_query($my_conn,$sql);
 
