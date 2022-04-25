@@ -6,9 +6,25 @@
     $fullname = $_POST['fullname'];
     $homeAddr = $_POST['home_address'];
 
-    $sql = "UPDATE tbl_user SET username='$username',email='$email',
-            fullname='$fullname',home_address='$homeAddr', password='$newPass' 
-            WHERE username='$username' AND password='$oldPass'";
+    $namaFile = $_FILES['choosefile']['name'];
+    $namaSementara = $_FILES['choosefile']['tmp_name'];
+
+    $url = "/";
+
+    // tentukan lokasi file akan dipindahkan
+    $dirUpload = "Image/".$username."/";
+    if (!file_exists($dirUpload)) {
+        mkdir($dirUpload, 0777, true);
+    }
+
+    $terupload = move_uploaded_file($namaSementara , $dirUpload.$namaFile);
+
+    $url = $url.$dirUpload.$namaFile;
+
+    $sql = "UPDATE tbl_user u, tbl_profile p 
+            SET u.username='$username',u.email='$email', u.fullname='$fullname',u.home_address='$homeAddr', u.password='$newPass', p.profile_url='$url'
+            WHERE u.id = p.id_user
+            AND u.username='$username' AND u.password='$oldPass'";
     
     mysqli_query($my_conn, $sql);
 
