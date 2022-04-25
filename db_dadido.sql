@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 25, 2022 at 04:18 AM
--- Server version: 5.7.36
+-- Generation Time: Apr 25, 2022 at 08:01 AM
+-- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `tbl_collection`;
 CREATE TABLE IF NOT EXISTS `tbl_collection` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_profile` int(11) NOT NULL DEFAULT '0',
+  `id_profile` int(11) NOT NULL DEFAULT 0,
   `collection_name` varchar(255) NOT NULL,
   `image_banner_url` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `tbl_collection` (
 --
 
 INSERT INTO `tbl_collection` (`id`, `id_profile`, `collection_name`, `image_banner_url`, `description`) VALUES
-(1, 1, 'Daniel Collection', '/Image/dece441/bannerbear.jpg', 'Ini adalah collection saya yang dimana banyak isinya'),
+(1, 1, 'Daniel Collection', '/Image/dece441/bannerbear.png', 'Ini adalah collection saya yang dimana banyak isinya'),
 (2, 2, 'Budi Collection', '/Image/kresm10/citybanner.png', 'Collection saya berisi sangat banyak data gambar bagus'),
 (3, 3, 'Ardos Collection', '/Image/ardo123/people.png', 'This is Ardos Collection, I have so Many Pictures in here');
 
@@ -91,28 +91,31 @@ DROP TABLE IF EXISTS `tbl_item`;
 CREATE TABLE IF NOT EXISTS `tbl_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_collection` int(11) NOT NULL,
-  `id_profile` int(11) DEFAULT NULL,
+  `id_profile_creator` int(11) DEFAULT NULL,
   `file_name` varchar(255) NOT NULL,
   `image_url` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `sell_status` int(11) NOT NULL,
   `price` float NOT NULL,
+  `id_profile_own` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_item`
 --
 
-INSERT INTO `tbl_item` (`id`, `id_collection`, `id_profile`, `file_name`, `image_url`, `description`, `sell_status`, `price`) VALUES
-(1, 1, 1, 'Rambut Api', '/Image/dece441/fireman.jpg', 'Dibuat Oleh daniel', 1, 12),
-(2, 1, 1, 'Headset Brow', '/Image/dece441/headset.jpg', 'Dibuat Oleh Daniel', 1, 3),
-(3, 2, 2, 'Golden Swords', '/Image/kresm10/gold_sword.png', 'Dibuat Oleh Budi', 1, 5),
-(4, 2, 2, 'GoldenCat', '/Image/kresm10/goldman.png', 'Dibuat Oleh Budi', 1, 8),
-(5, 3, 3, 'Black Man', '/Image/ardo123/blackman.png', 'Dibuat Oleh Ardo', 1, 5),
-(6, 3, 3, 'Jacket Man', '/Image/ardo123/coolman.png', 'Dibuat Oleh Ardo', 1, 8),
-(7, 1, 1, 'alam', '/Image/dece441/alam3.jpg', 'alam indah', 1, 5),
-(8, 1, 1, 'pantai', '/Image/dece441/beach.jpg', 'pantai indah', 1, 8);
+INSERT INTO `tbl_item` (`id`, `id_collection`, `id_profile_creator`, `file_name`, `image_url`, `description`, `sell_status`, `price`, `id_profile_own`) VALUES
+(1, 1, 1, 'Rambut Api', '/Image/dece441/fireman.jpg', 'Dibuat Oleh daniel', 1, 12, 1),
+(2, 1, 1, 'Headset Brow', '/Image/dece441/headset.jpg', 'Dibuat Oleh Daniel', 1, 3, 1),
+(3, 2, 2, 'Golden Swords', '/Image/kresm10/gold_sword.png', 'Dibuat Oleh Budi', 1, 5, 2),
+(4, 2, 2, 'GoldenCat', '/Image/kresm10/goldman.png', 'Dibuat Oleh Budi', 1, 8, 2),
+(5, 3, 3, 'Black Man', '/Image/ardo123/blackman.png', 'Dibuat Oleh Ardo', 1, 5, 3),
+(6, 3, 3, 'Jacket Man', '/Image/ardo123/coolman.png', 'Dibuat Oleh Ardo', 1, 8, 3),
+(7, 1, 1, 'alam', '/Image/dece441/alam3.jpg', 'alam indah', 1, 5, 1),
+(8, 1, 1, 'pantai', '/Image/dece441/beach.jpg', 'pantai indah', 1, 8, 1),
+(9, 2, 2, 'jajsurur', '/Image/kresm10/crop_image.jpg', 'sjjdjrrjke', 1, 20, 2),
+(10, 2, 2, 'akakirjrj', '/Image/kresm10/go-explore-949112.jpg', 'aindirkwnw', 1, 23, 2);
 
 -- --------------------------------------------------------
 
@@ -155,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `tbl_transaction` (
   `event` varchar(50) DEFAULT 'minted',
   `transaction_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_transaction`
@@ -169,7 +172,9 @@ INSERT INTO `tbl_transaction` (`id`, `id_item`, `id_profile_buyer`, `id_profile_
 (5, 5, 3, 0, 'minted', '2022-04-19 15:01:44'),
 (6, 6, 3, 0, 'minted', '2022-04-19 15:01:44'),
 (7, 7, 1, 0, 'minted', '2022-04-25 03:34:37'),
-(8, 8, 1, 0, 'minted', '2022-04-25 03:47:42');
+(8, 8, 1, 0, 'minted', '2022-04-25 03:47:42'),
+(9, 9, 2, 0, 'minted', '2022-04-25 07:27:17'),
+(10, 10, 2, 0, 'minted', '2022-04-25 07:27:56');
 
 -- --------------------------------------------------------
 

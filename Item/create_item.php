@@ -40,8 +40,8 @@
                     $collection_id = $row["id_collection"];
                 }
 
-                $sql3 = "INSERT INTO tbl_item (id_collection, id_profile, file_name, image_url, description, sell_status, price)
-                        VALUES ( $collection_id,$user_id, '$item_name', '$url', '$description', 1, $price)";
+                $sql3 = "INSERT INTO tbl_item (id_collection, id_profile_creator, file_name, image_url, description, sell_status, price, id_profile_own)
+                        VALUES ( $collection_id,$user_id, '$item_name', '$url', '$description', 1, $price, $user_id)";
 
                 $query3 = mysqli_query($my_conn, $sql3);
                 if($query3){
