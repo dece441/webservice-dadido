@@ -85,8 +85,8 @@ header('Access-Control-Allow-Origin: *');
 			case 'check_status' :
 				require_once 'Favorite/check_status.php';
 				break;
-			case 'count_fav' :
-				require_once 'Favorite/count_fav.php';
+			case 'set_status_sell' :
+				require_once 'Item/set_status_sell.php';
 				break;
 			default:
 				$response['error'] = true;
