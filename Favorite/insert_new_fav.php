@@ -63,7 +63,47 @@
                     }
                     
                 }else{
-                    echo json_encode("There are Likes in table");
+                    
+                    $sql_check_status = "SELECT f.status_favorit
+                                        FROM tbl_favorit f
+                                        WHERE f.id_item = $id_item
+                                        AND f.id_profile_followers = $id_creator
+                                        AND f.id_profile_following = $id_seeing";
+                    $query_check_status = mysqli_query($my_conn, $sql_check_status);
+                    if($query_check_status){
+                        while($row = mysqli_fetch_assoc($query_check_status)){
+                            $status_fav = $row["status_favorit"];
+                        }
+
+                        if($status_fav == 0){
+                            $sql5 = "UPDATE tbl_favorit
+                                    SET status_favorit = 1
+                                    WHERE id_item = $id_item
+                                    AND id_profile_followers = $id_creator
+                                    AND id_profile_following = $id_seeing";
+                            $query5 = mysqli_query($my_conn, $sql5);
+                            if($query5){
+                                echo json_encode("update success to 1");
+                            }else{
+                                echo json_encode("update failed");
+                            }
+                        }else{
+                            $sql5 = "UPDATE tbl_favorit
+                                    SET status_favorit = 0
+                                    WHERE id_item = $id_item
+                                    AND id_profile_followers = $id_creator
+                                    AND id_profile_following = $id_seeing";
+                            $query5 = mysqli_query($my_conn, $sql5);
+                            if($query5){
+                                echo json_encode("update success to 0");
+                            }else{
+                                echo json_encode("update failed");
+                            }
+                        }
+                    }
+
+
+                    
                 }
             }
         }
