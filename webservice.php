@@ -82,6 +82,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'buying_item' :
 				require_once 'wallet/buying_item.php';
 				break;
+			case 'check_status' :
+				require_once 'Favorite/check_status.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
