@@ -2,7 +2,7 @@
 
     $id = $_POST['id'];
 
-    $sql = "SELECT u.username AS 'owner', t.transaction_time AS 'last_activity', t.event, c.collection_name
+    $sql = "SELECT u.username AS 'owner', t.transaction_time AS 'last_activity', t.event, c.collection_name, i.sell_status
             FROM tbl_item i, tbl_transaction t, tbl_user u, tbl_profile p, tbl_collection c
             WHERE p.id_user = u.id
             AND i.id_collection = c.id
