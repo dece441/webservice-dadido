@@ -85,6 +85,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'check_status' :
 				require_once 'Favorite/check_status.php';
 				break;
+			case 'count_fav' :
+				require_once 'Favorite/count_fav.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';

@@ -83,7 +83,7 @@
                                     AND id_profile_following = $id_seeing";
                             $query5 = mysqli_query($my_conn, $sql5);
                             if($query5){
-                                echo json_encode("update success to 1");
+                                echo json_encode("success");
                             }else{
                                 echo json_encode("update failed");
                             }
@@ -95,7 +95,7 @@
                                     AND id_profile_following = $id_seeing";
                             $query5 = mysqli_query($my_conn, $sql5);
                             if($query5){
-                                echo json_encode("update success to 0");
+                                echo json_encode("success");
                             }else{
                                 echo json_encode("update failed");
                             }
