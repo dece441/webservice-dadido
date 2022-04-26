@@ -13,11 +13,15 @@ https://github.com/BUDIARIYANSA/DadidoApp.git
 2. do `git clone` 
 3. Import the SQL Database, which already in the folder
 4. Run XAMPP apache and MySQL server
-5. Open Dadido app on your android and enjoy
+5. Open `php.ini`
+6. Set the `post_max_size = 1024M`
+7. Open Dadido app on your android and enjoy
 
 ### On WAMP Server :
 1. Go to `C:\WAMP\WWW\`
 2. do `git clone`
 3. Import the SQL Database, Which already in the folder
 4. Run WAMP Server
-5. Open Dadido App on your android and enjoy
+5. Open `php.ini`
+6. Set the `post_max_size = 1024M`
+6. Open Dadido App on your android and enjoy
