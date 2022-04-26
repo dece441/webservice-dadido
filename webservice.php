@@ -79,6 +79,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'insert_new_fav' :
 				require_once 'Favorite/insert_new_fav.php';
 				break;
+			case 'buying_item' :
+				require_once 'wallet/buying_item.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
