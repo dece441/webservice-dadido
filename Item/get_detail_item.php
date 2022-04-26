@@ -8,7 +8,7 @@
             AND i.id_collection = c.id
             AND t.id_item = i.id
             AND t.id_profile_buyer = p.id_user
-            AND i.id = '$id'";
+            AND i.id = '$id' ORDER BY t.transaction_time ASC";
 
     $query = mysqli_query($my_conn, $sql);
 

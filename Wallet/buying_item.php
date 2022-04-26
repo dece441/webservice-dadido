@@ -7,7 +7,7 @@
 
     $balance_now_buyer = ($balance - $purchase_price);
     
-    if($balance_now_buyer > $purchase_price){
+    if($balance > $purchase_price){
         $sql = "SELECT w.id
                 FROM tbl_user u, tbl_profile p, tbl_wallet w
                 WHERE p.id_user = u.id
@@ -81,9 +81,16 @@
                                         VALUES ($item_id, $id_profil_buyer, $id_profil_seller, 'sale', '$date_time')";
                                 $query8 = mysqli_query($my_conn, $sql8);
                                 if($query8){
-                                    echo json_encode("Success seller bal: ".$balance_now_seller."buyer bal:".$balance_now_buyer);
-                                }else{
-                                    echo json_encode("Failed");
+                                    $sql9 = "UPDATE tbl_item i
+                                            SET i.id_profile_own = $id_profil_buyer
+                                            WHERE i.id = $item_id";
+                                    $query9 = mysqli_query($my_conn, $sql9);
+                                    
+                                    if($query9){
+                                        echo json_encode("Success Buy");
+                                    }else{
+                                        echo json_encode("Failed Buy");
+                                    }
                                 }
                                 
                             }

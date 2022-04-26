@@ -85,6 +85,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'check_status' :
 				require_once 'Favorite/check_status.php';
 				break;
+			case 'set_status_sell' :
+				require_once 'Item/set_status_sell.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
