@@ -41,9 +41,9 @@
 
                 $query4 = mysqli_query($my_conn, $sql4);
                 if($query4){
-                    echo json_encode("Success"); //return
+                    echo json_encode("success"); //return
                 }else{
-                    echo json_encode("Failed");
+                    echo json_encode("failed");
                 }
                 
             }
