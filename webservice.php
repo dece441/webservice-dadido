@@ -88,6 +88,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'set_status_sell' :
 				require_once 'Item/set_status_sell.php';
 				break;
+			case 'item_history' :
+				require_once 'Item/item_history.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
