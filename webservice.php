@@ -91,6 +91,9 @@ header('Access-Control-Allow-Origin: *');
 			case 'item_history' :
 				require_once 'Item/item_history.php';
 				break;
+			case 'update_collection':
+				require_once 'Creator/update_collection.php';
+				break;
 			default:
 				$response['error'] = true;
 				$response['message'] = '505';
